@@ -5,32 +5,40 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+<div class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
 
+<h2>Preprints</h2>
+<hr />
+<ol class="archive-list publication-list">
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond</h3>
+  <p class="archive__item-excerpt" itemprop="description">Junteng Liu, Yuanxiang Fan, Zhuo Jiang, Han Ding, Yongyi Hu, Chi Zhang, Yiqi Shi, Shitong Weng, Aili Chen, Shiqi Chen, Yunan Huang, Mozhi Zhang, Pengyu Zhao, Junjie Yan, Junxian He. <i>arXiv, 2025</i>. First author. GitHub code repository available.</p>
+</li>
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">On the Perception Bottleneck of VLMs for Chart Understanding</h3>
+  <p class="archive__item-excerpt" itemprop="description">Junteng Liu, Weihao Zeng, Xiwen Zhang, Yijun Wang, Zifei Shan, Junxian He. <i>arXiv, 2025</i>. First author. GitHub code repository: Vision4Chart.</p>
+</li>
+</ol>
 
-
+<h2>Conference Papers</h2>
+<hr />
+<ol class="archive-list publication-list">
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">On the Universal Truthfulness Hyperplane Inside LLMs</h3>
+  <p class="archive__item-excerpt" itemprop="description">Junteng Liu, Shiqi Chen, Yu Cheng, Junxian He. <i>EMNLP 2024, 2024</i>. First author. GitHub code repository: Universal_Truthfulness_Hyperplane.</p>
+</li>
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">In-Context Sharpness as Alerts: An Inner Representation Perspective for Hallucination Mitigation</h3>
+  <p class="archive__item-excerpt" itemprop="description">Shiqi Chen, Miao Xiong, Junteng Liu, Zhengxuan Wu, Teng Xiao, Siyang Gao, Junxian He. <i>ICML 2024, 2024</i>. Co-author.</p>
+</li>
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">C-Eval: A Multi-Level Multi-Discipline Chinese Evaluation Suite for Foundation Models</h3>
+  <p class="archive__item-excerpt" itemprop="description">Yuzhen Huang, Yuzhuo Bai, Zhihao Zhu, Junlei Zhang, Jinghan Zhang, Tangjun Su, Junteng Liu, Chuancheng Lv, Yikai Zhang, Jiayi Lei, Yao Fu, Maosong Sun, Junxian He. <i>NeurIPS 2023, 2023</i>. Co-author.</p>
+</li>
+<li class="publication-item">
+  <h3 class="archive__item-title" itemprop="headline">Composing Parameter-Efficient Modules with Arithmetic Operations</h3>
+  <p class="archive__item-excerpt" itemprop="description">Jinghan Zhang, Shiqi Chen, Junteng Liu, Junxian He. <i>NeurIPS 2023, 2023</i>. Co-author.</p>
+</li>
+</ol>

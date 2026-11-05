@@ -1,0 +1,51 @@
+name: Set up LJT Homepage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1.328.0
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Populate homepage from memory
+        run: python3 scripts/setup_ljt_homepage.py
+
+      - name: Build with Jekyll before committing
+        run: bundle exec jekyll build --baseurl /LJT-Homepage
+        env:
+          JEKYLL_ENV: production
+
+      - name: Show generated files for verification
+        run: |
+          git status --short
+          echo '=== ABOUT ==='
+          cat _pages/about.md
+          echo '=== PUBLICATIONS PAGE ==='
+          cat _pages/publications.html
+          echo '=== PUBLICATION FILES ==='
+          find _publications -maxdepth 1 -type f | sort
+
+      - name: Commit and push populated homepage
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Populate personal homepage from memory"
+            git push origin HEAD:master
+          fi

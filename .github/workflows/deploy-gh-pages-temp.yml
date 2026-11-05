@@ -1,4 +1,4 @@
-name: Temporary gh-pages deployment test
+name: Cleanup temporary deployment branch
 
 on:
   workflow_dispatch:
@@ -7,30 +7,11 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
-    runs-on: ubuntu-24.04
+  cleanup:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1.328.0
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-
-      - name: Build Jekyll site
-        run: bundle exec jekyll build --baseurl /LJT-Homepage
-        env:
-          JEKYLL_ENV: production
-
-      - name: Disable Jekyll processing on published branch
-        run: touch _site/.nojekyll
-
-      - name: Publish to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./_site
-          force_orphan: true
+      - name: Delete temporary gh-pages branch
+        run: git push origin --delete gh-pages

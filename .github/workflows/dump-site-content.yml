@@ -13,22 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print repository tree
-        run: |
-          echo '=== REPOSITORY TREE ==='
-          find . -maxdepth 3 -type f | sort
-
-      - name: Print key site files
+      - name: Print key theme files
         shell: bash
         run: |
           for f in \
-            _config.yml \
-            _data/navigation.yml \
-            _pages/about.md \
-            _pages/publications.html \
-            _pages/cv.md \
-            _publications/2024-02-17-paper-title-number-4.md \
-            _publications/2025-06-08-paper-title-number-5.md
+            _includes/archive-single.html \
+            _includes/author-profile.html \
+            Gemfile \
+            .github/workflows/jekyll.yml
           do
             echo "=== FILE: $f ==="
             cat "$f"

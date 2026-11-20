@@ -1,1 +1,46 @@
-test content
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve -l -H localhost`. If you change this file, please restart the 
+# server process.
+
+# Basic Site Settings
+locale                   : "en-US"
+site_theme               : "default"
+title                    : "Junteng Liu / Academic Homepage"
+title_separator          : "-"
+name                     : &name "Junteng Liu"
+description              : &description "Junteng Liu's academic portfolio"
+url                      : https://crawlerdevastate.github.io
+baseurl                  : "/LJT-Homepage"
+repository               : "CrawlerDevastate/LJT-Homepage"
+
+# Site Author - The following control what appear as part of the author content on the side bar.
+#               If a field is blank the icon and link will not appear, otherwise it will be shown.
+#               Additional customization can be done by editing /_includes/author-profile.html
+author:
+  # Biographic information
+  avatar           : "profile.png"
+  name             : "Junteng Liu"
+  pronouns         : # example: "she/her"  
+  bio              : "First-year PhD candidate at HKUST NLP Group. Research focuses on natural language processing and machine learning."
+  location         : "Hong Kong"
+  employer         : "Hong Kong University of Science and Technology"
+  uri              : # URL
+  email            : "jliugi@connect.ust.hk" 
+
+  # Academic websites
+  academia         : # URL
+  arxiv            : # URL - Update with the correct link to your profile
+  googlescholar    : "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate"
+  inspire-hep      : # URL
+  impactstory      : # URL
+  orcid            : # URL
+  semantic         : # URL
+  ssrn             : # URL
+  pubmed           : # URL
+  researchgate     : # URL
+  scopus           : # URL
+  zotero           : # URL
